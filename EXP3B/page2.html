@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Bio-Data</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e8f5e9;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background-color: #4caf50;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #388e3c;
+        }
+        .btn-secondary:hover {
+            background-color: #616161;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h3 class="text-center text-white bg-success py-2">BIO - DATA</h3>
+        <form id="biodataForm">
+            <div class="mb-2">
+                <label>Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                <div class="error" id="nameError"></div>
+            </div>
+            <div class="mb-2">
+                <label>Date of Birth</label>
+                <input type="date" id="dob" class="form-control" required>
+            </div>
+            <div class="mb-2">
+                <label>Email ID</label>
+                <input type="email" id="email" class="form-control" placeholder="Enter email" required>
+                <div class="error" id="emailError"></div>
+            </div>
+            <div class="mb-2">
+                <label>Community and Caste</label>
+                <input type="text" id="community" class="form-control" required>
+            </div>
+            <div class="mb-2">
+                <label>Blood Group</label>
+                <input type="text" id="bloodGroup" class="form-control" required>
+            </div>
+
+            <table class="table table-bordered mt-3">
+                <thead>
+                    <tr>
+                        <th>Exam</th>
+                        <th>Institution</th>
+                        <th>Max Marks</th>
+                        <th>Marks Secured</th>
+                        <th>%</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>S.S.L.C</td>
+                        <td><input type="text" class="form-control" id="sslcInstitution" required></td>
+                        <td><input type="number" class="form-control" id="sslcMaxMarks" min="1" required></td>
+                        <td><input type="number" class="form-control" id="sslcMarksSecured" min="0" required></td>
+                        <td><input type="number" class="form-control" id="sslcPercentage" min="0" max="100" required></td>
+                        <td><input type="number" class="form-control" id="sslcYear" required></td>
+                    </tr>
+                    <tr>
+                        <td>H.Sc.</td>
+                        <td><input type="text" class="form-control" id="hscInstitution" required></td>
+                        <td><input type="number" class="form-control" id="hscMaxMarks" min="1" required></td>
+                        <td><input type="number" class="form-control" id="hscMarksSecured" min="0" required></td>
+                        <td><input type="number" class="form-control" id="hscPercentage" min="0" max="100" required></td>
+                        <td><input type="number" class="form-control" id="hscYear" required></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="mb-2">
+                <label>Mode of Admission</label>
+                <select id="admissionMode" class="form-control" required>
+                    <option value="">Select</option>
+                    <option value="Counselling">Counselling</option>
+                    <option value="Management">Management</option>
+                    <option value="NRI">NRI</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+        </form>
+
+        <div class="d-flex justify-content-between mt-3">
+            <button onclick="saveAndPrevious('page1.html')" class="btn btn-secondary">Previous</button>
+            <button type="button" onclick="validateAndProceed()" class="btn btn-primary">Next</button>
+        </div>
+    </div>
+
+    <script>
+        function validateAndProceed() {
+            let isValid = true;
+
+            // Validate Name
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            nameError.textContent = "";
+            if (!/^[A-Z]/.test(name.value)) {
+                nameError.textContent = "Name must start with a capital letter.";
+                isValid = false;
+            }
+
+            // Validate Email
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            emailError.textContent = "";
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                emailError.textContent = "Enter a valid email address.";
+                isValid = false;
+            }
+
+            // Validate Percentage Fields (0-100)
+            const percentages = ['sslcPercentage', 'hscPercentage'];
+            percentages.forEach(id => {
+                const field = document.getElementById(id);
+                if (field.value < 0 || field.value > 100) {
+                    field.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    field.classList.remove('is-invalid');
+                }
+            });
+
+            // Ensure Max Marks > Secured Marks
+            const marks = [
+                { max: 'sslcMaxMarks', secured: 'sslcMarksSecured' },
+                { max: 'hscMaxMarks', secured: 'hscMarksSecured' }
+            ];
+            marks.forEach(pair => {
+                const maxField = document.getElementById(pair.max);
+                const securedField = document.getElementById(pair.secured);
+                if (parseInt(securedField.value) > parseInt(maxField.value)) {
+                    securedField.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    securedField.classList.remove('is-invalid');
+                }
+            });
+
+            // If all validations pass, move to next page
+            if (isValid) {
+                window.location.href = "page3.html";
+            }
+        }
+    </script>
+</body>
+</html>

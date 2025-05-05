@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notable Achievements & Disciplinary Actions</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-4 book">
+        <div class="page active">
+            <h3 class="text-center">Notable Achievements & Disciplinary Actions</h3>
+
+            <form id="achievementsForm">
+                <div class="mb-3">
+                    <label><strong>NOTABLE ACHIEVEMENTS:</strong></label>
+                    <textarea id="achievements" class="form-control" rows="4" required></textarea>
+                    <div class="invalid-feedback">Please enter your achievements.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label><strong>DISCIPLINARY ACTION TAKEN IF ANY:</strong></label>
+                    <textarea id="disciplinaryActions" class="form-control" rows="4" required></textarea>
+                    <div class="invalid-feedback">Please enter details (or mention "None").</div>
+                </div>
+            </form>
+
+            <div class="d-flex justify-content-between mt-3">
+                <button onclick="saveAndPrevious('page13.html')" class="btn btn-secondary">Previous</button>
+                <button onclick="saveAndNext('page15.html')" class="btn btn-primary">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Present Address & Communication</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-4 book">
+        <div class="page active">
+            <h3 class="text-center">Student Present Address & Communication</h3>
+
+            <form id="communicationForm">
+                <table class="table table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Sl. No</th>
+                            <th>Year</th>
+                            <th>Hostler / Day Scholar</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>I</td>
+                            <td><input type="text" class="form-control" id="year1" required></td>
+                            <td><input type="text" class="form-control" id="status1" required></td>
+                            <td><input type="text" class="form-control" id="address1" required></td>
+                        </tr>
+                        <tr>
+                            <td>II</td>
+                            <td><input type="text" class="form-control" id="year2" required></td>
+                            <td><input type="text" class="form-control" id="status2" required></td>
+                            <td><input type="text" class="form-control" id="address2" required></td>
+                        </tr>
+                        <tr>
+                            <td>III</td>
+                            <td><input type="text" class="form-control" id="year3" required></td>
+                            <td><input type="text" class="form-control" id="status3" required></td>
+                            <td><input type="text" class="form-control" id="address3" required></td>
+                        </tr>
+                        <tr>
+                            <td>IV</td>
+                            <td><input type="text" class="form-control" id="year4" required></td>
+                            <td><input type="text" class="form-control" id="status4" required></td>
+                            <td><input type="text" class="form-control" id="address4" required></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h5><strong>Address for Communication with Phone No:</strong></h5>
+                <textarea id="communicationAddress" class="form-control" rows="3" required></textarea>
+
+                <h5 class="mt-3"><strong>Contact Numbers:</strong></h5>
+                <div class="mb-2">
+                    <label>Father's Ph. No:</label>
+                    <input type="tel" id="fatherPhone" class="form-control" pattern="[0-9]{10}" placeholder="Enter Father's Phone Number" required>
+                    <div class="invalid-feedback">Enter a valid 10-digit phone number.</div>
+                </div>
+                <div class="mb-2">
+                    <label>Mother's Ph. No:</label>
+                    <input type="tel" id="motherPhone" class="form-control" pattern="[0-9]{10}" placeholder="Enter Mother's Phone Number" required>
+                    <div class="invalid-feedback">Enter a valid 10-digit phone number.</div>
+                </div>
+                <div class="mb-2">
+                    <label>Student's No:</label>
+                    <input type="tel" id="studentPhone" class="form-control" pattern="[0-9]{10}" placeholder="Enter Student's Phone Number" required>
+                    <div class="invalid-feedback">Enter a valid 10-digit phone number.</div>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <div>
+                        <label>Signature of the student:</label>
+                        <input type="text" id="studentSignature" class="form-control" required>
+                    </div>
+                </div>
+            </form>
+
+            <div class="d-flex justify-content-between mt-3">
+                <button onclick="saveAndPrevious('page14.html')" class="btn btn-secondary">Previous</button>
+                <button onclick="submitAllData()" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

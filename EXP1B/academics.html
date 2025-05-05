@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Resume - 1</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="header">
+            <img src="profile.jpg" alt="profile_pic" >
+            <div class="center-cont">
+                <h2 id="name">Dharnish BM</h2>
+                <p>Student</p>
+            </div>
+        </div>
+        <nav>
+        <ul class="nav">
+            <li><a href="index.html" >Overview</a></li>
+            <li><a href="academics.html" class="active">Academics</a></li>
+            <li><a href="pro.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        </nav>
+        <div class="Academics">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Qualification</th>
+                    <th>Institution</th>
+                    <th>Year</th>
+                    <th>Percentage</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>B.E</td>
+                    <td>Kongu Engineering College   </td>
+                    <td>2022</td>
+                    <td>8.71 CGPA (till Sem-II)</td>
+                    <td><a href="#" onclick="openModal('BE.jpg')">Certificate</a></td>
+                </tr>
+                <tr>
+                    <td>12th</td>
+                    <td>Vaigai Matric Hr. Sec. School</td>
+                    <td>2023</td>
+                    <td>93.3%</td>
+                    <td><a href="#" onclick="openModal('12th.jpg')">Certificate</a></td>
+                </tr>
+                <tr>
+                    <td>10th</td>
+                    <td>Vaigai Matric Hr. Sec. School</td>
+                    <td>2021</td>
+                    <td>Pass</td>
+                    <td><a href="#" onclick="openModal('10th.jpg')">Certificate</a></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="achieve">
+            <h2>Accomplishments &AMP; Achievements</h2>
+            <p>Here are some of my achievements and accomplishments</p>
+            <ul>
+                <li>Scored <strong>Second-best</strong> in HSLC Exam in the school.</li>
+                <li>Completed C programming course with <strong>Exemplary</strong> Performance.</li>
+                <li>Completed Typewriting courses in Both Tamil and English languages.</li>
+                <li>Won many prizes for Poster-designing contest during school days.</li>
+                <li>Acted as <strong>School people leader</strong> in my 11th and 12th STD.</li>
+                <li>Presented papers about Gen AI in various Educational Institutions.</li>
+            </ul>
+        </div>
+        <div id="imageModal" class="modal">
+            <div class="modal-content">
+                <img id="modalImage" src="#" alt="Certificate">
+                <br>
+                <button class="close-btn" type="button" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+        <script>
+            function openModal(imageSrc) {
+                document.getElementById("modalImage").src = imageSrc;
+                document.getElementById("imageModal").style.display = "block";
+            }
+    
+            function closeModal() {
+                document.getElementById("imageModal").style.display = "none";
+            }
+        </script>
+        <div class="footer">
+            <p>Designed and Maintained by me!!</p>
+        </div>
+    </body>
+</html>

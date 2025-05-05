@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Resume - 1</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="header">
+            <img src="profile.jpg" alt="profile_pic" >
+            <div class="center-cont">
+                <h2 id="name">Dharnish BM</h2>
+                <p>Student</p>
+            </div>
+        </div>
+        <nav>
+        <ul class="nav">
+            <li><a href="index.html" >Overview</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="pro.html">Projects</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        </nav>
+        <div class="contact">
+            <h2>You can contact me through:</h2>
+            <p><b>Email: </b><a href="mailto:dharnish.bm.2005@gmail.com">dharnish.bm.2005@gmail.com</a></p>
+            <p><b>Phone: </b><a href="tel:+919842375676">+91&nbsp;9842375676</a></p>
+            <p><b>LinkedIn: </b><a href="https://www.linkedin.com/in/dharnish-bm-2005/" target="_self">https://www.linkedin.com/in/dharnishbm2911/</a></p>
+            <p><b>GitHub: </b><a href="https://github.com/dharnishbm2005" target="_self">https://github.com/Dharnish-BM</a></p>
+            <p><b>Link to: </b> <button type="button" onclick="openModal('Resume.jpg')">Resume</button></p>
+        </div>
+        <div id="imageModal" class="modal">
+            <div class="modal-content">
+                <img id="modalImage" src="#" alt="Resume">
+                <br>
+                <button class="close-btn" type="button" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+        <script>
+            function openModal(imageSrc) {
+                document.getElementById("modalImage").src = imageSrc;
+                document.getElementById("imageModal").style.display = "block";
+            }
+    
+            function closeModal() {
+                document.getElementById("imageModal").style.display = "none";
+            }
+        </script>
+        <div class="footer">
+            <p>Designed and Maintained by me!!</p>
+        </div>
+    </body>
+</html>
